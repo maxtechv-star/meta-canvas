@@ -1,0 +1,31 @@
+{
+  "name": "@metaload/meta-canvas",
+  "version": "1.0.0",
+  "description": "BY LINZ / L-M0 - Canvas generators with Vercel endpoint",
+  "main": "index.js",
+  "scripts": {
+    "start": "node test/render-test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxtechv-star/meta-canvas.git"
+  },
+  "keywords": [
+    "swiftcord",
+    "canvas",
+    "canvas discord",
+    "discord canvas",
+    "html",
+    "discord js",
+    "baileys",
+    "vercel"
+  ],
+  "author": "LINZ",
+  "license": "ISC",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.32",
+    "canvas": "^3.2.0",
+    "moment": "^2.29.1",
+    "node-fetch": "^2.6.9"
+  }
+}

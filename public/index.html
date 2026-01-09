@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>meta-canvas demo</title>
+    <style>
+      body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; padding: 24px; background:#0f1113; color:#fff; }
+      label, input, select { display:block; margin:6px 0; }
+      .preview { margin-top: 16px; border:1px solid #333; background:#000; width: 1024px; max-width:100%; }
+    </style>
+  </head>
+  <body>
+    <h1>meta-canvas demo</h1>
+    <form id="frm">
+      <label>Type
+        <select name="type">
+          <option value="welcome">Welcome</option>
+          <option value="goodbye">Goodbye</option>
+          <option value="burn">Burn</option>
+          <option value="lick">Lick</option>
+          <option value="demote">Demote</option>
+        </select>
+      </label>
+      <label>Username <input name="username" value="Tester"></label>
+      <label>Guild <input name="guild" value="MyServer"></label>
+      <label>Member Count <input name="memberCount" value="123"></label>
+      <label>Avatar URL (optional) <input name="avatar" placeholder="https://example.com/avatar.png"></label>
+      <label>Guild Icon URL (optional) <input name="guildIcon" placeholder="https://example.com/icon.png"></label>
+      <label>Background (optional local path or URL) <input name="background" placeholder="./assets/img/1px.png"></label>
+      <label>Domain (preferred) or URL (optional) <input name="domain" placeholder="example.com"></label>
+      <button type="submit">Generate</button>
+    </form>
+
+    <div class="preview">
+      <img id="result" alt="Generated image will appear here" style="width:100%; display:block;">
+    </div>
+
+    <script>
+      const form = document.getElementById('frm');
+      const img = document.getElementById('result');
+      form.addEventListener('submit', async (ev) => {
+        ev.preventDefault();
+        const params = new URLSearchParams(new FormData(form));
+        const url = '/api/image?' + params.toString();
+        img.src = url + '&_ts=' + Date.now();
+      });
+
+      // generate once on load
+      form.dispatchEvent(new Event('submit'));
+    </script>
+  </body>
+</html>
